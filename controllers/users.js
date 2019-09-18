@@ -24,7 +24,7 @@ const createUser = (req, res) => {
 const updateUser = (req, res) => {
     let isValidUser = users.some(users => users.id === parseInt(req.params.id));
     if (isValidUser === true) {
-        let user = users.find(i => i._id == req.params.id);
+        let user = users.find(i => i.id == req.params.id);
         user.id = 1000000;
         res.json(user);
     } else {
@@ -33,12 +33,12 @@ const updateUser = (req, res) => {
 }
 
 const removeUser = (req, res) => {
+    console.log('hello world')
     let isValidUser = users.some(users => users.id === parseInt(req.params.id));
     if (isValidUser === true) {
         let user = users.find(i => i.id == req.params.id);
         user.isActive = false;
         res.send('deleted');
-        
     } else {
         res.status(400).json({msg: `User ${req.params.id} does not exist.`})
     }
