@@ -1,9 +1,14 @@
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 4000
+const express = require("express");
+const app = express();
+const bodyParser = require(bodyParser);
+const port = process.env.PORT || 4000;
 
-app.get('/', (req, res) => res.send('default route'))
+const routerFiles = require(./routes/users);
+
+app.use(bodyParser.json());
+app.use(routerFiles);
+app.get("/", (req, res) => res.send("default route"));
 
 app.listen(port, () => {
-  console.log('app is listening on:', port)
-})
+	console.log("Hail Satan on:", port);
+});
