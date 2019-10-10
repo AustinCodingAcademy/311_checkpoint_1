@@ -1,17 +1,16 @@
 const express = require('express')
-const bodyParser = require("body-parser");
-
 const app = express()
+const bodyParser = require('body-parser')
 const port = process.env.PORT || 4000
+
+let routerFiles = require('./routes/user')
+
+app.use(bodyParser.json())
+
+app.use(routerFiles)
 
 app.get('/', (req, res) => res.send('default route'))
 
-app.use("/", express.static('4000'));
-app.use(bodyParser.json());
-app.get('./routes/user');
-
 app.listen(port, () => {
- console.log(`Web server is listening on port ${port}!`);
-}); 
-
-
+  console.log('app is listening on:', port)
+})
