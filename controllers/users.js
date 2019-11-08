@@ -43,8 +43,16 @@ createUser = (req, res) => {
   res.json(users);
 };
 
-updateUser = (req, res) => {};
+updateUser = (req, res) => {
+  const user = users.find(user => user.id === parseInt(req.params.id))
+  console.log(user)
+  res.json('Linked updateUser')
+};
 
-deleteUser = (req, res) => {};
+deleteUser = (req, res) => {
+  const user = users.find(user => user.id === parseInt(req.params.id))
+  console.log(user)
+  res.json('Linked deleteUser')
+};
 
 module.exports = { listUser, showUser, createUser, updateUser, deleteUser };
