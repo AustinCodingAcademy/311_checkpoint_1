@@ -8,8 +8,8 @@ router.get("/users/:id", controllers.showUser);
 
 router.post("/users", controllers.createUser);
 
-router.put("/users/:id", (req, res) => {});
+router.put("/users/:id", controllers.updateUser);
 
-router.delete("/users/:id", (req, res) => {});
+router.delete("/users/:id", controllers.deleteUser);
 
 module.exports = router;

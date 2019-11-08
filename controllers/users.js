@@ -29,7 +29,7 @@ createUser = (req, res) => {
       geo: {
         lat: userInput.address.geo.lat,
         lng: userInput.address.geo.lng
-      },
+      }
     },
     phone: userInput.phone,
     website: userInput.website,
@@ -37,10 +37,14 @@ createUser = (req, res) => {
       name: userInput.company.name,
       catchPhrase: userInput.company.catchPhrase,
       bs: userInput.company.bs
-    },
+    }
   };
   users.push(newUser);
-  res.json(users)
-}
+  res.json(users);
+};
 
-module.exports = { listUser, showUser, createUser };
+updateUser = (req, res) => {};
+
+deleteUser = (req, res) => {};
+
+module.exports = { listUser, showUser, createUser, updateUser, deleteUser };
