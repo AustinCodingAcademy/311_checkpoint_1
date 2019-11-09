@@ -1,9 +1,10 @@
 const users = require("../data/index");
-
+const deletedUsers = require('../data/deletedUsers')
+//list all users
 listUser = (req, res) => {
   res.json(users);
 };
-
+// list one user by ID
 showUser = (req, res) => {
   const user = users.find(user => user.id === parseInt(req.params.id));
   if (user !== undefined) {
@@ -12,7 +13,7 @@ showUser = (req, res) => {
     res.json({ msg: `User ID #${req.params.id} does not exist...` });
   }
 };
-
+// create new user
 createUser = (req, res) => {
   let counter = users.length;
   let userInput = req.body;
@@ -51,8 +52,14 @@ updateUser = (req, res) => {
 
 deleteUser = (req, res) => {
   const user = users.find(user => user.id === parseInt(req.params.id))
-  console.log(user)
-  res.json('Linked deleteUser')
+  if(user !== undefined){
+    const deleteUserIndex = users.indexOf(user);
+    let spliced = users.splice(deleteUserIndex, 1)
+    deletedUsers.push(spliced)
+    res.json(users)
+  } else {
+    res.json({msg: `User with ID #${req.params.id} does not exist...`})
+  }
 };
 
 module.exports = { listUser, showUser, createUser, updateUser, deleteUser };
