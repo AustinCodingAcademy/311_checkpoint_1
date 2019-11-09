@@ -1,5 +1,5 @@
 const users = require("../data/index");
-const deletedUsers = require('../data/deletedUsers')
+const deletedUsersArr = require('../data/deletedUsers')
 //list all users
 listUser = (req, res) => {
   res.json(users);
@@ -53,10 +53,14 @@ updateUser = (req, res) => {
 deleteUser = (req, res) => {
   const user = users.find(user => user.id === parseInt(req.params.id))
   if(user !== undefined){
-    const deleteUserIndex = users.indexOf(user);
-    let spliced = users.splice(deleteUserIndex, 1)
-    deletedUsers.push(spliced)
-    res.json(users)
+    const deletedUserIndex = users.indexOf(user);
+    let deletedUser = users.splice(deletedUserIndex, 1)
+    deletedUsersArr.push(deletedUser)
+    res.json({
+      Success: 'User has been deleted',
+      Users: users,
+      Deleted_Users: deletedUsersArr
+    })
   } else {
     res.json({msg: `User with ID #${req.params.id} does not exist...`})
   }
