@@ -52,7 +52,7 @@ updateUser = (req, res) => {
     if(newInfo.name ? oldInfo.name = newInfo.name : oldInfo.name);
     if(newInfo.username ? oldInfo.username = newInfo.username : oldInfo.username);
     if(newInfo.email ? oldInfo .email = newInfo.email : oldInfo .email);
-    // if(newInfo.address.street ? oldInfo.address.street = newInfo.address.street : oldInfo.address.street);
+    // if(newInfo.address.street !== undefined ? oldInfo.address.street = newInfo.address.street : oldInfo.address.street);
     // if(newInfo.address.suite ? oldInfo .address.suite = newInfo.address.suite : oldInfo.address.suite);
     // if(newInfo.address.city ? oldInfo.address.city = newInfo.address.city : oldInfo.address.city);
     // if(newInfo.address.zipcode ? oldInfo.address.zipcode = newInfo.address.zipcode : oldInfo.address.zipcode);
@@ -63,7 +63,7 @@ updateUser = (req, res) => {
     // if(newInfo.company.name ? oldInfo.company.name = newInfo.company.name : oldInfo.company.name);
     // if(newInfo.company.catchPhrase ? oldInfo.company.catchPhrase = newInfo.company.catchPhrase : oldInfo.company.catchPhrase);
     // if(newInfo.company.bs ? oldInfo.company.bs = newInfo.company.bs : oldInfo.company.bs);
-    console.log(user.address.street)
+    console.log(oldInfo.address.street)
   } else {
     res.json({msg: `User with ID #${req.params.id} does not exist...`})
   }
