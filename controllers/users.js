@@ -56,8 +56,12 @@ updateUser = (req, res) => {
       newInfo.address = Object.assign(user.address, req.body.address)
       newInfo.address = Object.assign(user.address, req.body.suite)
       newInfo.address = Object.assign(user.address, req.body.city)
-      newInfo.zipcode = Object.assign(user.address, req.body.zipcode)
+      newInfo.address = Object.assign(user.address, req.body.zipcode)
     };
+    // if(req.body.address.geo){
+    //   // newInfo.address.geo = Object.assign(user.address.geo, req.body.lat)
+    // }
+    // console.log(req.body.address.geo.lat)
 
     const updatedUser = Object.assign(user, newInfo);
 
