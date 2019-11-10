@@ -47,21 +47,25 @@ createUser = (req, res) => {
 // update user
 updateUser = (req, res) => {
   const user = users.find(user => user.id === parseInt(req.params.id));
-  if(user !== undefined){
+  if (user !== undefined) {
     const newInfo = {};
     if (req.body.name) newInfo.name = req.body.name;
     if (req.body.username) newInf.username = req.body.username;
     if (req.body.email) newInfo.email = req.body.email;
-    if (req.body.address) newInfo.address = Object.assign(user.address, req.body.address);
+    if (req.body.address) {
+      newInfo.address = Object.assign(user.address, req.body.address)
+      newInfo.address = Object.assign(user.address, req.body.suite)
+      newInfo.address = Object.assign(user.address, req.body.city)
+      newInfo.zipcode = Object.assign(user.address, req.body.zipcode)
+    };
 
     const updatedUser = Object.assign(user, newInfo);
-  
+
     res.json(updatedUser);
   } else {
-    res.status(400).send(`User with ID #${req.params.id} does not exist...`)
+    res.status(400).send(`User with ID #${req.params.id} does not exist...`);
   }
 };
-
 
 // delete user
 deleteUser = (req, res) => {
@@ -88,7 +92,7 @@ module.exports = { listUser, showUser, createUser, updateUser, deleteUser };
 //   console.log(user);
 //   if (user !== undefined) {
 //     if (req.body.name) user.name = req.body.name;
-//     if (req.body.address) user.address.street = req.body.address.street;
+//     if (req.body.address.street) user.address.street = req.body.address.street;
 //   }
 //   res.json(user);
 // };
