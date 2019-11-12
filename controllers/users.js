@@ -54,14 +54,10 @@ updateUser = (req, res) => {
     if (req.body.email) newInfo.email = req.body.email;
     if (req.body.address) {
       newInfo.address = Object.assign(user.address, req.body.address)
-      newInfo.address = Object.assign(user.address, req.body.suite)
-      newInfo.address = Object.assign(user.address, req.body.city)
-      newInfo.address = Object.assign(user.address, req.body.zipcode)
+      // newInfo.address = Object.assign(user.address, req.body.suite)
+      // newInfo.address = Object.assign(user.address, req.body.city)
+      // newInfo.address = Object.assign(user.address, req.body.zipcode)
     };
-    // if(req.body.address.geo){
-    //   // newInfo.address.geo = Object.assign(user.address.geo, req.body.lat)
-    // }
-    // console.log(req.body.address.geo.lat)
 
     const updatedUser = Object.assign(user, newInfo);
 
@@ -88,7 +84,6 @@ deleteUser = (req, res) => {
   }
 };
 
-module.exports = { listUser, showUser, createUser, updateUser, deleteUser };
 
 // //Old update user
 // updateUser = (req, res) => {
@@ -96,7 +91,9 @@ module.exports = { listUser, showUser, createUser, updateUser, deleteUser };
 //   console.log(user);
 //   if (user !== undefined) {
 //     if (req.body.name) user.name = req.body.name;
-//     if (req.body.address.street) user.address.street = req.body.address.street;
+//     if (req.body.address. && req.body.address.street) user.address.street = req.body.address.street;
 //   }
 //   res.json(user);
 // };
+
+module.exports = { listUser, showUser, createUser, updateUser, deleteUser };
