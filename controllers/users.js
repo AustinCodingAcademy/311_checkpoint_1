@@ -43,7 +43,6 @@ createUser = (req, res) => {
   users.push(newUser);
   res.json(users);
 };
-
 // update user
 updateUser = (req, res) => {
   const user = users.find(user => user.id === parseInt(req.params.id));
@@ -66,7 +65,6 @@ updateUser = (req, res) => {
     res.status(404).send(`User with ID #${req.params.id} does not exist...`);
   }
 };
-
 // delete user
 deleteUser = (req, res) => {
   const user = users.find(user => user.id === parseInt(req.params.id));
@@ -83,16 +81,5 @@ deleteUser = (req, res) => {
     res.status(404).send(`User with ID #${req.params.id} does not exist`);
   }
 };
-
-// //Old update user
-// updateUser = (req, res) => {
-//   const user = users.find(user => user.id === parseInt(req.params.id));
-//   console.log(user);
-//   if (user !== undefined) {
-//     if (req.body.name) user.name = req.body.name;
-//     if (req.body.address. && req.body.address.street) user.address.street = req.body.address.street;
-//   }
-//   res.json(user);
-// };
 
 module.exports = { listUser, showUser, createUser, updateUser, deleteUser };
