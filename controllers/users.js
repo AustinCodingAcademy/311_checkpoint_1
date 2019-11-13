@@ -10,7 +10,7 @@ showUser = (req, res) => {
   if (user !== undefined) {
     res.json(user);
   } else {
-    res.json({ msg: `User ID #${req.params.id} does not exist...` });
+    res.status(400).send(`User with ID #${req.params.id} does not exist...`);
   }
 };
 // create new user
@@ -63,7 +63,7 @@ updateUser = (req, res) => {
     const updatedUser = Object.assign(user, newInfo);
     res.json(updatedUser);
   } else {
-    res.status(400).send(`User with ID #${req.params.id} does not exist...`);
+    res.status(404).send(`User with ID #${req.params.id} does not exist...`);
   }
 };
 
@@ -80,7 +80,7 @@ deleteUser = (req, res) => {
       Deleted_Users: deletedUsersArr
     });
   } else {
-    res.status(400).send(`User with ID #${req.params.id} does not exist`);
+    res.status(404).send(`User with ID #${req.params.id} does not exist`);
   }
 };
 
