@@ -1,4 +1,6 @@
 const users = require("../data/index")
+const newUser = require("../data/sampleUser")
+
 
 let counter = users.length +1
 
@@ -8,6 +10,7 @@ const get = (req, res) => {
 
 const getId = (req, res) => {
   let usersId = parseInt(req.params.userId)
+  console.log(req.params.userId)
   let usersIndex = parseInt(req.params.userId) - 1;
   
   for (let i = 0; i < users.length; i++) {
@@ -18,18 +21,39 @@ const getId = (req, res) => {
 }
 
 const post = (req, res) => {
-  const sampleUser = {
+  const newPost = {
     _id: counter,
-    body: req.body.body,
-    postId: req.body.postId
+    name: req.body.name,
+    username: req.body.username,
+    email: req.body.email,
+    address: req.body.address
     }
-    users.push(sampleUser); 
+    users.push(newPost); 
     counter = counter++
-    console.log(req.body)
-    res.json(sampleUser)
+    console.log(users)
+    res.json(users)
+}
+
+const put = (req, res) => {
+  const foundIndex = users.findIndex(x => x.id == (req.params.userId));
+  users[foundIndex].name = req.body.name;
+  users[foundIndex].username = req.body.username;
+  users[foundIndex].email = req.body.email;
+  users[foundIndex].address = req.body.address;
+
+  res.json(users);
+  };
+
+
+const deleteUser = (req, res) => {
+  const foundIndex = users.findIndex(x => x.id == (req.params.userId));
+  users.splice(foundIndex, 1)
+
+  res.json(users)
+  res.send('User Deleted')
 }
 
 
-module.exports = { get, getId, post  }
+module.exports = { get, getId, post, put, deleteUser }
 
 
