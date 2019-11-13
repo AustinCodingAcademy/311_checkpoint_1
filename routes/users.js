@@ -6,4 +6,8 @@ const {listUser, showUsers, postUsers, putUsers, deleteUsers} = require('../cont
 
 
 
-router.get("/users, listUsers)")
+router.get('/users', userController.listUsers)
+router.get('/user/:id', userController.showUsers)
+router.post('/users', userController.listUsers)
+router.put('/users', userController.listUsers)
+router.delete('/users', userController.listUsers)
