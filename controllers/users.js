@@ -53,14 +53,14 @@ updateUser = (req, res) => {
     if (req.body.username) newInf.username = req.body.username;
     if (req.body.email) newInfo.email = req.body.email;
     if (req.body.address) {
-      newInfo.address = Object.assign(user.address, req.body.address)
-      // newInfo.address = Object.assign(user.address, req.body.suite)
-      // newInfo.address = Object.assign(user.address, req.body.city)
-      // newInfo.address = Object.assign(user.address, req.body.zipcode)
-    };
-
+      newInfo.address = Object.assign(user.address, req.body.address);
+    }
+    if (req.body.phone) newInfo.phone = req.body.phone;
+    if (req.body.webite) newInfo.website = req.body.website;
+    if (req.body.company) {
+      newInfo.company = Object.assign(user.company, req.body.company);
+    }
     const updatedUser = Object.assign(user, newInfo);
-
     res.json(updatedUser);
   } else {
     res.status(400).send(`User with ID #${req.params.id} does not exist...`);
@@ -83,7 +83,6 @@ deleteUser = (req, res) => {
     res.status(400).send(`User with ID #${req.params.id} does not exist`);
   }
 };
-
 
 // //Old update user
 // updateUser = (req, res) => {
