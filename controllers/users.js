@@ -1,12 +1,12 @@
 const users = require("../data/index")
 const newUser = require("../data/sampleUser")
 
-
 let counter = users.length +1
 
 const get = (req, res) => {
   res.json(users);
 }
+
 
 const getId = (req, res) => {
   let usersId = parseInt(req.params.userId)
@@ -19,6 +19,7 @@ const getId = (req, res) => {
     }   
   }
 }
+
 
 const post = (req, res) => {
   const newPost = {
@@ -33,6 +34,7 @@ const post = (req, res) => {
     console.log(users)
     res.json(users)
 }
+
 
 const put = (req, res) => {
   const foundIndex = users.findIndex(x => x.id == (req.params.userId));
@@ -52,7 +54,6 @@ const deleteUser = (req, res) => {
   res.json(users)
   res.send('User Deleted')
 }
-
 
 module.exports = { get, getId, post, put, deleteUser }
 
