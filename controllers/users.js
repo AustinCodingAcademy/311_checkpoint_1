@@ -47,10 +47,12 @@ const put = (req, res) => {
   };
 
 
+
 const deleteUser = (req, res) => {
   const foundIndex = users.findIndex(x => x.id == (req.params.userId));
+ 
   users.splice(foundIndex, 1)
-
+ 
   res.json(users)
   res.send('User Deleted')
 }
