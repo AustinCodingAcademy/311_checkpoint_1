@@ -18,4 +18,5 @@ function createUser(request, response){
   resizeBy.json(users)
 }
 
+
 module.exports = {displayUsers, showUsers, createUser };
