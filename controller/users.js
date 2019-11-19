@@ -7,6 +7,7 @@ exports.getAllUsrs = function getAllUsrs(req, res) {
   res.json(users);
 }
 
+// Made this coment 
 // Get one user
 exports.getUsr = function getUsr(req, res) {
   let user = users.find(i => i.id == req.params.id);
