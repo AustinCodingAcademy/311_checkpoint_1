@@ -1,18 +1,18 @@
-# Checkpoint 1
+<!-- # Checkpoint 1
 
 ## Setup
 
 Initialize and run the app: `npm install` && `npm start`.
 
-## Overview
+## Overview -->
 
-We are going to create a CRUD app using our knowledge of _routes_ and _controllers_. We will not be incorporating static files in this assignment. The basic Express functionality has been written for us but we will need to create any additional files/folders. Follow the instructions below to begin.
+<!-- We are going to create a CRUD app using our knowledge of _routes_ and _controllers_. We will not be incorporating static files in this assignment. The basic Express functionality has been written for us but we will need to create any additional files/folders. Follow the instructions below to begin. -->
 
 ## Instructions
 
-#### 1. Index
+<!-- #### 1. Index
 
-* In the `index.js` file, import and use the `bodyParser` in order to ensure that the body from our POST requests is appropriately cast to JSON.
+* In the `index.js` file, import and use the `bodyParser` in order to ensure that the body from our POST requests is appropriately cast to JSON. -->
 
 #### 2. Routes
 
