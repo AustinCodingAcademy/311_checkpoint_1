@@ -2,10 +2,13 @@
 const userData = require('../data/index');
 const sampleUserData = require('../data/sampleUser');
 
+
+// List All Users
 const listUsers = (req, res) => {
   res.json(userData);
 }
 
+// Show One User
 const showUser = (req, res) => {
   const userId = parseInt(req.params.id);
 
@@ -18,6 +21,7 @@ const showUser = (req, res) => {
   }
 }
 
+// Create User (with local data file sampleUser.js)
 const createUser = (req, res) => {
   const newId = userData.length + 1
   const newUser = sampleUserData;
@@ -41,6 +45,7 @@ const updateUser = (req, res) => {
   }
 }
 
+// Delete User
 const deleteUser = (req, res) => {
   const userId = parseInt(req.params.id)
  
