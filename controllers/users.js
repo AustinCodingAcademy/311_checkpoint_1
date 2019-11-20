@@ -9,7 +9,7 @@ function showUsers(request, response) {
   let foundusers = users.find(function(element){
     return users._id == req.params.id
   })
-  response.json(foundusers)
+  return response.json(foundusers)
 }
 
 function createUser(request, response){
