@@ -61,9 +61,9 @@ We will create five controller functions. These will correspond to the routes ab
   * Should delete one user from the array based on its id -->
 
 
-#### 4. Error handling
+<!-- #### 4. Error handling
 
-Make sure that you are handling common use cases. For example, if we try to find a user by its _id_ and no id exists, we should return a 404 status code and no data. Likewise for the PUT and DELETEs, if a user doesn't exist return a 400 (bad request) status code.
+Make sure that you are handling common use cases. For example, if we try to find a user by its _id_ and no id exists, we should return a 404 status code and no data. Likewise for the PUT and DELETEs, if a user doesn't exist return a 400 (bad request) status code. -->
 
 
 ## POINTS
