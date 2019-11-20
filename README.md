@@ -51,14 +51,14 @@ We will create five controller functions. These will correspond to the routes ab
 * showUser
   * Should retrieve just the user that matches the passed-in id -->
 
-* createUser
-  * Should add a user to the array
+<!-- * createUser
+  * Should add a user to the array -->
 
-* updateUser
-  * Should update one user in the array based on its id
+<!-- * updateUser
+  * Should update one user in the array based on its id -->
 
-* deleteUser
-  * Should delete one user from the array based on its id
+<!-- * deleteUser
+  * Should delete one user from the array based on its id -->
 
 
 #### 4. Error handling

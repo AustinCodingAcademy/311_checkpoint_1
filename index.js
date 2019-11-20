@@ -15,8 +15,7 @@ app.use(bodyParser.json());
 // Routes
 app.use(usersRouter);
 
-
-
+// Listener
 app.listen(port, () => {
   console.log('app is listening on:', port)
 }); 
