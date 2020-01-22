@@ -8,7 +8,13 @@ const listUser = (request, response) => {
 
 const showUser = (request, response) => {
   let userID = request.params.id;
-  return response.json(users.find(user => user.id === parseInt(userID)));
+  const found = users.some(user => user.id === parseInt(userID));
+  if (found) {
+    console.log('heyoo');
+    return response.json(users.find(user => user.id === parseInt(userID)));
+  } else {
+    response.status(404).json(`User ${userID} does not exist!`);
+  }
 }
 
 const createUser = (request, response) => {
@@ -21,16 +27,26 @@ const createUser = (request, response) => {
 
 const updateUser = (request, response) => {
   let userID = request.params.id;
-  request.body = sampleUser;
-  request.body.id = userID;
-  users[userID - 1] = sampleUser;
-  return response.json(users);
+  const found = users.some(user => user.id === parseInt(userID));
+  if (found) {
+    request.body = sampleUser;
+    request.body.id = userID;
+    users[userID - 1] = sampleUser;
+    return response.json(users);
+  } else {
+    response.status(400).json(`User ${userID} does not exist!`);
+  }
 }
 
 const deleteUser = (request, response) => {
   let userID = request.params.id;
-  users.find(user => user.id === parseInt(userID)).isActive = false;
-  return response.json(users);
+  const found = users.some(user => user.id === parseInt(userID));
+  if (found) {
+    users.find(user => user.id === parseInt(userID)).isActive = false;
+    return response.json(users);
+  } else {
+    response.status(400).json(`User ${userID} does not exist!`);
+  }
 }
 
 module.exports = { 
