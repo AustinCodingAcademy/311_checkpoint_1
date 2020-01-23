@@ -1,8 +1,11 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 4005
+const bodyParser = require("body-parser");
 
-app.get('/', (req, res) => res.send('default route'))
+app.use(express.json());
+app.use(bodyParser.json())
+app.use('/users', require('./routes/users'))
 
 app.listen(port, () => {
   console.log('app is listening on:', port)
