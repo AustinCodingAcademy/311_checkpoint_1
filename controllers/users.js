@@ -42,12 +42,16 @@ const createUser = (req, res) => {
   user.id = idCount;
   user.active = true;
   users.push(user);
-  res.json(user);
+  res.status(201).json(user);
 }
 
 const updateUser = (req, res) => {
   let userIndex = users.findIndex(user => user.id === parseInt(req.params.id));
   let user = users[userIndex];
+  if(!user) {
+    res.status('404').send('user not found')
+  }
+
   let updates = req.body;
   Object.entries(updates).forEach(update => {
     let key = update[0];
@@ -63,7 +67,7 @@ const deleteUser = (req, res) => {
     return res.status(404).send('user not found')
   }
   let deleted = users.splice(userIndex, 1);
-  res.json(deleted)
+  res.status(204).json(deleted)
 }
 
 module.exports = {
