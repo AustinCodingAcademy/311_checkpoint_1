@@ -45,6 +45,18 @@ const createUser = (req, res) => {
   res.json(user);
 }
 
+const updateUser = (req, res) => {
+  let userIndex = users.findIndex(user => user.id === parseInt(req.params.id));
+  let user = users[userIndex];
+  let updates = req.body;
+  Object.entries(updates).forEach(update => {
+    let key = update[0];
+    let value = update[1]
+    user[key] = value
+  });
+  res.json(user);
+}
+
 const deleteUser = (req, res) => {
   let userIndex = users.findIndex(user => user.id == req.params.id)
   if(userIndex === -1) {
@@ -58,5 +70,6 @@ module.exports = {
   listUsers,
   showUser,
   createUser,
+  updateUser,
   deleteUser
 }
