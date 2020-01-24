@@ -7,8 +7,13 @@ const list = (req,res) =>res.json(users)
 // * Should retrieve just the user that matches the passed-in id
 const show = (req, res) => {
   let userFound = users.find(x => x.id == req.params.id)
+  if (!userFound  == undefined) {
+    res.json(userFound)
+  }else{
+    res.status(400).send(`User with ID #${req.params.id} does not exist...`);
+  }
   // console.log(commentId, commentFound)
-  res.json(userFound)
+  
 };
 
 // * createUser
@@ -32,8 +37,12 @@ const create = (req, res) => {
 const update = (req,res) => {
 
   let userFound = users.find(x => x.id == req.params.id)
+  if(!userFound){
+    res.status(404).send("User not found")
+  }else{
   userFound.name = req.body.name
   res.json(userFound)
+}
 }
 // * deleteUser
 // * Should delete one user from the array based on its id
