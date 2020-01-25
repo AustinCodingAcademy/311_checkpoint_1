@@ -1,22 +1,22 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-const users = require('../data/index')
+const users = require('../data/index');
+const sampleUser = require('../data/sampleUser');
 
-let counter = users.length;
+const usersController = require('../controllers/users');
 
-router.get('/', (req, res) => {
-  res.send(users)
-})
+// Get all users
+router.get('/', usersController.listUsers)
 
-router.get('/:id', (req, res) => {
-  let user = users.filter(user => user.id === Number(req.params.id))
-  res.send(user)
-})
+// Get one user
+router.get('/:id', usersController.showUser)
 
-router.post('/', (req, res) => {
-  users.push(req.body)
-  res.send(users)
-})
+// Post new user
+router.post('/', usersController.createUser)
+
+router.put('/:id', usersController.updateUser)
+
+router.delete('/:id', usersController.deleteUser)
 
 module.exports = router;
