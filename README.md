@@ -10,11 +10,11 @@ We are going to create a CRUD app using our knowledge of _routes_ and _controlle
 
 ## Instructions
 
-#### 1. Index
+#### 1. Index // DONE //
 
 * In the `index.js` file, import and use the `bodyParser` in order to ensure that the body from our POST requests is appropriately cast to JSON.
 
-#### 2. Routes
+#### 2. Routes // DONE //
 
 We will create five routes. The data for these routes is provided in the `data` folder. It is up to you to make use of this data correctly. For the POST route you may import and use the `sampleUser` file instead of creating a user manually.
 
@@ -34,8 +34,12 @@ We will create five routes. The data for these routes is provided in the `data` 
 * PUT /users/:id
   * Update one user matching the path param (id). You may again use the sampleUser code as your "body" for this request
 
+    // 0. Make this work. //Added as optional.
+
 * DELETE /users/:id
   * Delete one user by it's id
+
+  //1. Add the thing where it just makes him inactive. //Added as optional.
 
 _You may chose to alter these routes so they appear as ('/', '/:id') in your users file and then prefix them all with '/users' when we import them into index.. but you are not required to do so_
 
@@ -61,7 +65,7 @@ We will create five controller functions. These will correspond to the routes ab
   * Should delete one user from the array based on its id
 
 
-#### 4. Error handling
+#### 4. Error handling // DONE //
 
 Make sure that you are handling common use cases. For example, if we try to find a user by its _id_ and no id exists, we should return a 404 status code and no data. Likewise for the PUT and DELETEs, if a user doesn't exist return a 400 (bad request) status code.
 
