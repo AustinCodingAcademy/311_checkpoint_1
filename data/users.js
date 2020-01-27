@@ -1,4 +1,4 @@
-module.exports = [
+const users = [
   {
     "id": 1,
     "name": "Leanne Graham",
@@ -20,7 +20,8 @@ module.exports = [
       "name": "Romaguera-Crona",
       "catchPhrase": "Multi-layered client-server neural-net",
       "bs": "harness real-time e-markets"
-    }
+    },
+    "isActive": "true"
   },
   {
     "id": 2,
@@ -43,7 +44,8 @@ module.exports = [
       "name": "Deckow-Crist",
       "catchPhrase": "Proactive didactic contingency",
       "bs": "synergize scalable supply-chains"
-    }
+    },
+    "isActive": "true"
   },
   {
     "id": 3,
@@ -66,7 +68,8 @@ module.exports = [
       "name": "Romaguera-Jacobson",
       "catchPhrase": "Face to face bifurcated interface",
       "bs": "e-enable strategic applications"
-    }
+    },
+    "isActive": "true"
   },
   {
     "id": 4,
@@ -89,7 +92,8 @@ module.exports = [
       "name": "Robel-Corkery",
       "catchPhrase": "Multi-tiered zero tolerance productivity",
       "bs": "transition cutting-edge web services"
-    }
+    },
+    "isActive": "true"
   },
   {
     "id": 5,
@@ -112,7 +116,8 @@ module.exports = [
       "name": "Keebler LLC",
       "catchPhrase": "User-centric fault-tolerant solution",
       "bs": "revolutionize end-to-end systems"
-    }
+    },
+    "isActive": "true"
   },
   {
     "id": 6,
@@ -135,7 +140,8 @@ module.exports = [
       "name": "Considine-Lockman",
       "catchPhrase": "Synchronised bottom-line interface",
       "bs": "e-enable innovative applications"
-    }
+    },
+    "isActive": "true"
   },
   {
     "id": 7,
@@ -158,7 +164,8 @@ module.exports = [
       "name": "Johns Group",
       "catchPhrase": "Configurable multimedia task-force",
       "bs": "generate enterprise e-tailers"
-    }
+    },
+    "isActive": "true"
   },
   {
     "id": 8,
@@ -181,7 +188,8 @@ module.exports = [
       "name": "Abernathy Group",
       "catchPhrase": "Implemented secondary concept",
       "bs": "e-enable extensible e-tailers"
-    }
+    },
+    "isActive": "true"
   },
   {
     "id": 9,
@@ -204,7 +212,8 @@ module.exports = [
       "name": "Yost and Sons",
       "catchPhrase": "Switchable contextually-based project",
       "bs": "aggregate real-time technologies"
-    }
+    },
+    "isActive": "true"
   },
   {
     "id": 10,
@@ -227,6 +236,9 @@ module.exports = [
       "name": "Hoeger LLC",
       "catchPhrase": "Centralized empowering task-force",
       "bs": "target end-to-end models"
-    }
+    },
+    "isActive": "true"
   }
-]
+];
+
+module.exports = users;
