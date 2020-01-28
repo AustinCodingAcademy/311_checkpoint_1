@@ -17,8 +17,9 @@ const showUser = ('/:id', (req, res) => {
     res.statusCode = 404
     res.statusMessage = 'User not found.'
     res.send(`Status Code: ${res.statusCode}. ${res.statusMessage}`)
+  } else {
+    res.send(user);
   }
-  res.send(user);
 })
 
 // Post new user
@@ -37,12 +38,13 @@ const updateUser = ('/:id', (req, res) => {
     res.statusCode = 400
     res.statusMessage = 'Bad request. User not found.'
     res.send(`Status Code: ${res.statusCode}. ${res.statusMessage}`)
+  } else {
+    for (const key in user) {
+      user[key] = sampleUser[key] ? sampleUser[key] : user[key];
+    }
+    user.id = Number(req.params.id);
+    res.send(user);
   }
-  for (const key in user) {
-    user[key] = sampleUser[key] ? sampleUser[key] : user[key];
-  }
-  user.id = Number(req.params.id);
-  res.send(user);
 })
 
 // Delete user
