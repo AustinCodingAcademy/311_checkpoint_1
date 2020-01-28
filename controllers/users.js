@@ -1,4 +1,4 @@
-const users = require('../data/users')
+const users = require('../data/index')
 let userCounter = users.length;
 
 const listUser = (req, res) => {
@@ -6,47 +6,38 @@ const listUser = (req, res) => {
   };
 
 const showUser = (req, res) => {
-  let idSearched = req.params.id
-  const user = users.find(user => 
-  user._id == idSearched)
-  res.json(user)
-};
+  const searchId = users.find(user=>
+  user.id == req.params.id)
+  if(searchId) {
+    res.json(searchId)
+  } else {
+    res.status(404).json({msg: `No users exist with the id of ${req.params.id}`})
+  };
 
 const createUser = (req, res) => {
-  let user = req.body;
+  let newUser = req.body;
   userCounter += 1
-  user.id = userCounter
-  users.push(user)
+  newUser.id = userCounter
+  users.push(newUser)
   res.json(users)
   };
 
   const updateUser = (req, res) => {
-    const id = req.params.userId
+    const found = req.params.userId
     const user = users.find(user => {
-      return user.id == id
+      return user.found == found
     })
     user.occupation = 'plumber'
     return res.json(user)
   };
     
   const deleteUser = (req, res) => {
-    const id = req.params.userId
+    const deleted = req.params.userId
     const userIndex = users.findIndex(user => {
-      return user.id == id
+      return user.deleted == deleted
     })
     users.splice(userIndex)
     return res.send('deleted')
   };
 
-  const findWithQuery = () => {
-    const users = []
-    if (req.body.query) {
-      const users = await db.find(query)
-    }
-    if (!users.length) {
-      res.status(404).send('No users found')
-    }
-    res.json(users)
-  }
-
-  module.exports = { listUser, showUser, createUser, updateUser, deleteUser, findWithQuery}
+  module.exports = { listUser, showUser, createUser, updateUser, deleteUser}}

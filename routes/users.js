@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-let userController = require('../data/users')
+let userController = require('../controllers/users')
 
 router.get('/', userController.listUser)
   
@@ -11,8 +11,6 @@ router.post('/', userController.createUser)
 router.put('/:id', userController.updateUser)
 
 router.delete('/:id', userController.deleteUser)
-
-router.get('/users', userController.findWithQuery)
   
 module.exports = router;
 
