@@ -38,4 +38,15 @@ const createUser = (req, res) => {
     return res.send('deleted')
   };
 
-  module.exports = { listUser, showUser, createUser, updateUser, deleteUser}
+  const findWithQuery = () => {
+    const users = []
+    if (req.body.query) {
+      const users = await db.find(query)
+    }
+    if (!users.length) {
+      res.status(404).send('No users found')
+    }
+    res.json(users)
+  }
+
+  module.exports = { listUser, showUser, createUser, updateUser, deleteUser, findWithQuery}
