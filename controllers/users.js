@@ -2,7 +2,7 @@ const users = require('../data/index');
 const sampleUser = require('../data/sampleUser');
 
 const listUser = (request, response) => {
-  console.log('heyoo');
+  // console.log('heyoo');
   return response.json(users);
 }
 
