@@ -1,5 +1,21 @@
 let users = require("../data/index");
 
+////////////////////
+//
+// Helper function
+//
+
+// get the highest ID number of all the users so
+// when a new user is added, their id number will
+// be one higher
+const getHighestId = () => {
+    let highestID = 0;
+    users.forEach(user => {
+        if (user.id > highestID) highestID = user.id;
+    })
+    return highestID;
+}
+
 // show all the users
 const list = (req, res) => {
     res.json(users);
@@ -21,7 +37,10 @@ const create = (req, res) => {
     // if there's no user, change the response string to a complaint
     if (!newuser) {jsonStr = "400: there's no user!";}
     // otherwise add our user
-    else users.push(newuser);
+    else {
+        newuser.id = getHighestId() + 1;   
+        users.push(newuser);
+    }
 
     // return the response string
     res.json(jsonStr);
@@ -45,6 +64,8 @@ const deleteUser = (req, res) => {
     })
     if (userDeleted) {res.json(users);} else res.send("400: no such user")
 };
+
+
 
 // this is the method to change a user's info
 const updateUser = (req,res) => {
