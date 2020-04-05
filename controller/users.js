@@ -1,10 +1,10 @@
 const users = require("../data/index");
-// const sample = require("../data/sampleUser");
+// adding to be able to use sample user in createUser
+const sample = require("../data/sampleUser");
 
 const listUsers = (req, res) => {
 	res.json(users);
 };
-
 const showUser = (req, res) => {
 	// find user by id
 	let findUsers = users.find((user) => user.id == parseInt(req.params.id));
@@ -21,49 +21,31 @@ const showUser = (req, res) => {
 
 const createUser = (req, res) => {
 	let counter = users.length + 1;
-	let newUser = {
-		id: counter,
-		name: "Brett Smith",
-		username: "brsmith",
-		email: "brsmith@june.biz",
-		address: {
-			street: "Roger Ave",
-			suite: "Apt. 294",
-			city: "Austin",
-			zipcode: "78758",
-			geo: {
-				lat: "-37.3159",
-				lng: "81.1496"
-			}
-		},
-		phone: "1-786-244-8273 x2095",
-		website: "brett.org",
-		company: {
-			name: "Smith-Crona LLC",
-			catchPhrase: "Multi-layered client-server neural-net",
-			bs: "harness real-time e-markets"
-		}
-	};
-	// adds new user
-	users.push(newUser);
+	// changes the counter on the sample object to increment instead of 99
+	sample.id = counter;
+	sample.email = "justdoingstuffforfun@haha.com";
+	//creates the user from the sampleUser.js file
+	users.push(sample);
+
 	// returns new user
 	res.json(users[users.length - 1]);
 };
 
 const updateUser = (req, res) => {
-	// find the id
-
-	const update = users.find((user) => user.id == parseInt(req.params.id));
-	// if found change the name
+	//finds the user by id
+	let update = users.find((user) => user.id === parseInt(req.params.id));
+	// updating key values for selected user id using sampleUser file
 	if (update) {
-		// find the id & change the name
-		users.find((user) => user.id == parseInt(req.params.id)).name =
-			req.body.name;
-		// send back the updated user
+		update.name = sample.name;
+		update.email = sample.email;
+		update.phone = sample.phone;
+		// return updated user
 		res.send(update);
 	} else {
 		// if id not found give status & message
-		res.status(404).json(`Member id ${req.params.id} not found.`);
+		res.status(404).json({
+			msg: `User ${req.params.id} is not found.`
+		});
 	}
 };
 
