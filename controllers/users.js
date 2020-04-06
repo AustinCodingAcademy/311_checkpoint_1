@@ -1,10 +1,12 @@
 const users = require('../data/index');
 const sampleUser = require('../data/sampleUser');
 
+// Retrieve all users
 const listUsers = (req, res) => {
     res.json(users);
 }
 
+// Retrieve user that matches passed-in ID, and send error code if not found.
 const showUser = (req, res) => {
     const found = users.some(users => users.id === parseInt(req.params.id));
 
@@ -15,6 +17,7 @@ const showUser = (req, res) => {
     }
 }
 
+// Add user to the array
 const createUser = (req, res) => {
     req.body._id = users.length;
     req.body._id++;
@@ -22,6 +25,7 @@ const createUser = (req, res) => {
     res.json(users);
 }
 
+// Update user info based on ID, and send error code if it doesn't exist.
 const updateUser = (req, res) => {
     const found = users.some(users => users.id === parseInt(req.params.id));
 
@@ -40,6 +44,7 @@ const updateUser = (req, res) => {
     }
 }
 
+// Delete a user based on ID, and send error code if not found.
 const deleteUser = (req, res) => {
     const found = users.some(users => users.id === parseInt(req.params.id));
 

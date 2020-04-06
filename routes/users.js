@@ -3,6 +3,7 @@ const router = express.Router();
 
 const usersController = require('../controllers/users');
 
+// Routes for the controllers
 router.get('/users', usersController.listUsers);
 
 router.get('/users/:id', usersController.showUser);
@@ -14,6 +15,9 @@ router.put('/users/:id', usersController.updateUser);
 router.delete('/users/:id', usersController.deleteUser);
 
 module.exports = router;
+
+
+// Old router functions
 
 // router.get('/users', (req, res) => {
 //     res.json(users)
