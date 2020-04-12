@@ -35,9 +35,10 @@ const update = (req, res) => {
   user.name = req.body.name;
   user.username = req.body.username;
   if (!user) {
-    throw new Error("No User Found");
+    throw new Error("User was not found");
   }
   res.json(user);
+  //console.log(users)
 };
 
 const DELETE = (req, res) => {
@@ -48,10 +49,11 @@ const DELETE = (req, res) => {
     })[0];
     const index = user.indexOf(user);
     user.splice(index, 1);
+    //console.log(users)
     res.json(user);
 
   if (!user) {
-    throw new Error("No User Found");
+    throw new Error("User was not found");
   }
   res.json(users);
 };
