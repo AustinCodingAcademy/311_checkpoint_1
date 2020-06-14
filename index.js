@@ -2,6 +2,10 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 4000
 
+const usersRouter = require('./routes/users')
+
+app.use(usersRouter)
+
 app.get('/', (req, res) => res.send('default route'))
 
 app.listen(port, () => {
