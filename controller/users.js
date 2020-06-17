@@ -25,4 +25,16 @@ const post = (req, res)=>{
   }
   res.json(users)
 }
-module.exports = {list , getOne, post}
+const update = (req,res)=>{
+  let stringID = req.params.userID
+  let id = parseInt(stringID)
+  console.log(newUser)
+  for(let i = 0; i < users.length;i++){
+   if(users[i].id === id){
+     users[i].name = 'JohnJohn'
+     users[i].email = "thisISFake@fake.com"
+     res.json(users)
+   }
+  }
+ }
+module.exports = {list , getOne, post, update}
