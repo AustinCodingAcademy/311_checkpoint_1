@@ -53,14 +53,14 @@ const updateUser = (req, res) => {
 
   if (found) {
     users.forEach(user => {
-      if(user.id === +req.params.id) {
-        user.name = req.body.name 
-        res.json({ msg: 'User name updated', user })
+      if (user.id === +req.params.id ) {
+        user.name = req.body.name
+        res.json({ msg: 'User name updated', user})
       }
     })
   }
   else {
-    res.status(400).json({ msg: `No member with the id of ${req.params.id}` })
+    res.status(400).json({ msg: `No member with the id of ${req.params.id}`})
   }
 }
 
