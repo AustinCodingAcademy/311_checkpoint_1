@@ -42,12 +42,12 @@ const updateUser = (req, res) => {
                 user.name = update.name
             } else {
                 return user.name
-            }
+            } 
         }
     })
     res.json(users)
 }
- 
+
 // Should delete one user from the array based on its id
 // DELETE /users/:id Delete one user by it's id
 const deleteUser = (req, res) => {
