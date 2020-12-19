@@ -36,14 +36,14 @@ const createUser = (req, res) => {
 // PUT /users/:id Update one user matching the path param (id). You may again use the sampleUser code as your "body" for this request
 const updateUser = (req, res) => {
     const update = req.body;
-    users.forEach(user => {
+    const found = users.some(user => user.id == req.params.id);
+    if (found) users.forEach(user => {
         if(user.id === parseInt(req.params.id)) {
-            if(user.name != update.name){
-                user.name = update.name
+                user.name = update.name;
+                res.json({ msg: 'User name updated', user})
             } else {
-                return user.name
-            } 
-        }
+                res.status(404).send("User not found.")
+            }
     })
     res.json(users)
 }
@@ -58,8 +58,9 @@ const deleteUser = (req, res) => {
                 message: 'Deleted',
                 users: users.filter(user => user.id !== parseInt(req.params.id))
             })
-    } else{res.status(404).json({ msg: 'User not found'})
-}
+    } else {
+        res.status(404).send("User not found.")
+    }
 }
 
 module.exports = { listUsers, showUser, createUser, updateUser, deleteUser}
