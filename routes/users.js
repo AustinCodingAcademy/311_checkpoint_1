@@ -1,17 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const users = require("../data/index.js");
+const usersController = require("../controllers/users.js");
 
-router.get("/users", (req, res) => {
-  return res.json(users);
-});
+router.get("/users", usersController.listUsers);
 
-router.get("/users/:id", (req, res) => {
-  let id = req.params.id - 1;
-  return res.json(users[id]);
-});
+router.get("/users/:id", usersController.showUser);
 
-// const vehiclesController = require("../controllers/vehicles.js");
-// router.get("/vehicles", vehiclesController.list);
+router.post("/users", usersController.createUser);
+
+router.put("/users/:id", usersController.updateUser);
+
+router.delete("/users/:id", usersController.deleteUser);
 
 module.exports = router;
