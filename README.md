@@ -10,7 +10,7 @@ We are going to create a CRUD app using our knowledge of _routes_ and _controlle
 
 ## Instructions
 
-#### 1. Index
+#### 1. Index.js
 
 * In the `index.js` file, import and use the `bodyParser` in order to ensure that the body from our POST requests is appropriately cast to JSON.
 
@@ -37,7 +37,7 @@ We will create five routes. The data for these routes is provided in the `data` 
 * DELETE /users/:id
   * Delete one user by its id
 
-_You may chose to alter these routes so they appear as ('/', '/:id') in your users file and then prefix them all with '/users' when we import them into index.. but you are not required to do so_
+_You may choose to alter these routes so they appear as ('/', '/:id') in your users file and then prefix them all with '/users' when we import them into index.js, but you are not required to do so_
 
 #### 3. Controllers
 
