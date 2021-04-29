@@ -9,6 +9,8 @@ router.get('/', usersController.getDefaultRoute);
 router.get('/users', usersController.getUsers); 
   
 router.get('/users/:id', usersController.getUserById); 
+
+router.get('/users/firstname/:first_name', usersController.getUserByFirstName); 
   
 router.post('/users', usersController.createNewUser);
   

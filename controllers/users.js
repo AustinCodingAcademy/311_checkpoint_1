@@ -48,6 +48,30 @@ function getUserById(req, res){
       }
     })
 }
+
+function getUserByFirstName(req, res){
+  let firstName = req.params.first_name; 
+  console.log('inside the users route/path getting user with first name', firstName); 
+
+  let sql = 'SELECT * FROM users WHERE first_name = ?'; 
+  let replacements = [firstName];
+  sql = mysql.format(sql, replacements);
+
+  pool.query(sql, function(err, results){
+    if(err){ 
+      console.log( 'Internal Service Error ', err )
+      res.status(500).send('Error'); 
+  } else if(results.length === 0){
+      console.log({ 'message': 'Error occured: Cannot fetch user with first name ' + firstName + ' ' + err })
+      res.status(404).send('User not found')
+  } else if(results.length > 1){
+      console.log('Found too many users with the first name ' + firstName);
+      res.status(500).json({ 'message' : 'too many users found with this first name. Please narrow your search', results })
+  } else{
+    res.json(results[0]); 
+  }
+})
+}
   
 function createNewUser(req, res){
     console.log('currently in the users path/route creating a new user');
@@ -116,4 +140,4 @@ function deleteUser(req, res){
     })
 }
 
-module.exports = { getUsers, getUserById, createNewUser, updateUser, deleteUser, getDefaultRoute}; 
+module.exports = { getUsers, getUserById, createNewUser, updateUser, deleteUser, getDefaultRoute, getUserByFirstName }; 
