@@ -67,24 +67,37 @@ function getAllCustomerContactInfo(req, res){
 
 function getCustomerContactInfoByCustomerId(req, res){
     let customerId = req.params.customer_Id; 
-    console.log('in the customer contact info function/path fetching customer Id', customerId); 
+    console.log('in the customer contact info path fetching customer Id', customerId); 
+    
 
-    let sql = `SELECT customers.customer_id,  customers.first_name, customers.last_name, address.phone, customers.email, address.address, address.district
+    let sql = `SELECT customers.customer_id,  customers.first_name, customers.last_name, address.phone, customers.email, address.address, city.city, address.district, country.country
     FROM address
     JOIN customers
-    ON customers.address_id = address.address_id
+    ON customers.address_id = address.address_id 
+    JOIN city
+    ON address.city_id = city.city_id
+    JOIN country
+    ON city.country_id = country.country_id
     WHERE customer_id = ?
-    ORDER BY customer_id`
+    GROUP BY customer_id`
 
     let replacements = [customerId]; 
     sql = mysql.format(sql, replacements); 
 
     pool.query(sql, function(err, results){
         if(err){
-            console.error()
+            console.error('Internal Server Error', err);
+            res.status(500).send('Internal Server Error Occured'); 
+        }else if(results.length === 0){
+            console.log('customer and corresponding contact info not found for customer id' + customerId); 
+            res.status(404).send('Customer and corresponding contact info not found for customer id ' + customerId); 
+        }else if(results.length > 1){
+            console.log('400 Bad Request');
+            res.status(400).send('More than 1 customer found with the same ID. Bad Request, refine search')
+        }else{
+            res.json(results)
         }
     })
-
 }
 
 module.exports = { getCustomers, getCustomersByStoreId, getCustomerContactInfoByCustomerId, getAllCustomerContactInfo }

@@ -8,6 +8,6 @@ router.get('/customers/:storeId', customersController.getCustomersByStoreId);
 
 router.get('/customersContactInfo', customersController.getAllCustomerContactInfo); 
 
-router.get('/customerContactInfo/:customer_Id', customersController.getCustomerContactInfoByCustomerId); 
+router.get('/customersContactInfo/:customer_Id', customersController.getCustomerContactInfoByCustomerId); 
 
 module.exports = router; 
