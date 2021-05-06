@@ -2,15 +2,19 @@
 const express = require('express') //import express 
 const app = express() // initialize express into app variable 
 const bodyParser = require("body-parser"); //import body parser
-const port = process.env.PORT || 3306 // streaming port 
+const port = 3306;  // streaming port 
+const superHeroesRouter = require('./routes/superHeroes.js'); 
+const usersRouter = require('./routes/users.js'); 
+const customersRouter = require('./routes/customers.js');
 
 //** middleware */
 app.use(bodyParser.json()); 
-app.use(require('./routes/users.js')); 
-app.use(require('./routes/superHeroes.js'));  
+app.use(superHeroesRouter);
+app.use(usersRouter);  
+app.use(customersRouter); 
 
 
 //create listen request here 
 app.listen(port, () => {
-  console.log('app is listening on port:', port)
+  console.log('app is listening on port:', port); 
 })

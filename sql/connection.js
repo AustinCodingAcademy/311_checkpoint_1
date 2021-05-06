@@ -1,5 +1,5 @@
 //import SQL
-const mysql = require('mysql'); 
+const mysql= require('mysql'); 
 
 //create connection to mysql database and initialize into pool variable to call later 
 let pool = mysql.createPool({
