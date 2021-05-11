@@ -1,17 +1,30 @@
-//** requirements */
-const express = require('express') //import express 
+require('dotenv').config(); 
+const express = require('express'); //import express 
 const app = express() // initialize express into app variable 
-const bodyParser = require("body-parser"); //import body parserconst port = process.env.PORT || 3306;  // streaming port 
+const bodyParser = require("body-parser"); //import body parser  // streaming port 
 const superHeroesRouter = require('./routes/superHeroes.js'); 
 const usersRouter = require('./routes/users.js'); 
 const customersRouter = require('./routes/customers.js');
 
 
-//** middleware */
+//** middleware */; 
 app.use(bodyParser.json()); 
 app.use(superHeroesRouter);
 app.use(usersRouter);  
 app.use(customersRouter); 
+
+ 
+app.get('/logtest', function(req, res){
+  res.send('success in log test funtion ')
+})
+
+function test(){
+  document.getElementById('submitButton').addEventListener('click', function(){
+    window.alert('success'); 
+    console.log('worked')
+    document.getElementById('outputTest').innerHTML = 'hello'
+  })
+}
 
 
 
@@ -21,4 +34,5 @@ const port = process.env.PORT || 3306;  // streaming port
 app.listen(port, () => {
   console.log('app is listening on port:', port); 
 })
+
 

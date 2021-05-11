@@ -1,5 +1,11 @@
 const pool = require('../sql/connection.js');
-const mysql = require('mysql');
+const mysql = require('mysql'); 
+
+
+function getDefaultRoute(req, res){
+    console.log('in the default route')
+    res.send('default route');
+}
 
 function getCustomers(req, res){
     console.log('inside the customers route/path');
@@ -100,4 +106,15 @@ function getCustomerContactInfoByCustomerId(req, res){
     })
 }
 
-module.exports = { getCustomers, getCustomersByStoreId, getCustomerContactInfoByCustomerId, getAllCustomerContactInfo }
+function createCustomer(req, res){
+    res.send('in the create customer route');
+    console.log('success')
+}
+
+module.exports = { getCustomers, 
+    getCustomersByStoreId, 
+    getCustomerContactInfoByCustomerId, 
+    getAllCustomerContactInfo, 
+    getDefaultRoute,
+    createCustomer
+}

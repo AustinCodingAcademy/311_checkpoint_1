@@ -1,15 +1,15 @@
 //import SQL
+require('dotenv').config(); 
 const mysql= require('mysql'); 
 
 //create connection to mysql database and initialize into pool variable to call later 
 let pool = mysql.createPool({
-  host: 'den1.mysql1.gear.host',
-  user: 'jmdb11',
-  password: 'Pi45wfTS4U!?',
-  database:'jmdb11',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DEFAULT_SCHEMA,
   connectionLimit: 200
 })
-
 
 pool.getConnection(function(err, connection) {
   if (err) {
