@@ -5,13 +5,18 @@ const bodyParser = require("body-parser"); //import body parser  // streaming po
 const superHeroesRouter = require('./routes/superHeroes.js'); 
 const usersRouter = require('./routes/users.js'); 
 const customersRouter = require('./routes/customers.js');
+const authRouter = require('./routes/auth.js'); 
+const { logger } = require('./middleware/index.js')
 
 
 //** middleware */; 
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
+app.use(logger); 
 app.use(superHeroesRouter);
 app.use(usersRouter);  
 app.use(customersRouter); 
+app.use(authRouter); 
+
 
  
 app.get('/logtest', function(req, res){

@@ -1,9 +1,8 @@
 const jwksRsa = require('jwks-rsa');
-const jwt = require('express-jwt'); 
-require('dotenv').config(); 
+const jwt = require('express-jwt');  
 
 function logger(req, res, next){
-  console.log('logged');
+  console.log('Logged', new Date().toISOString()); 
   next(); 
 }
 
