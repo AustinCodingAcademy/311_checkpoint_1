@@ -20,7 +20,7 @@ app.use(authRouter);
 
  
 app.get('/logtest', function(req, res){
-  res.send('success in log test funtion ')
+  res.send('success in log test funtion ');
 })
 
 function test(){
