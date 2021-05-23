@@ -1,4 +1,4 @@
-require('dotenv').config(); 
+
 const express = require('express'); //import express 
 const app = express() // initialize express into app variable 
 const bodyParser = require("body-parser"); //import body parser  // streaming port 
