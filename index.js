@@ -1,8 +1,12 @@
 const express = require('express')
-const app = express()
+const usersRouter = require('./routes/users.js');
+const app = express();
+app.use(express.json());
+
+
 const port = process.env.PORT || 4000
 
-app.get('/', (req, res) => res.send('default route'))
+app.use(usersRouter)
 
 app.listen(port, () => {
   console.log('app is listening on:', port)
