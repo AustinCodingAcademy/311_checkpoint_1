@@ -1,10 +1,6 @@
 const axios = require('axios');
-const mysql = require('mysql');
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const pool = require('../sql/connection'); 
-
-const saltRounds = 10; 
+ 
 
 function login (req, res){
     const { username, password } = req.body
