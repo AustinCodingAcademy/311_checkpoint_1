@@ -1,5 +1,4 @@
 const users = require("../data/index")
-const sample = require("../data/sampleUser")
 
 
 function getAllUsers(req, res) {
