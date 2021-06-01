@@ -7,6 +7,13 @@ const port = process.env.PORT || 4000
 
 app.get('/', (req, res) => res.send('default route'))
 
+// routers
+// app.use('/users', require('./routes/users'));
+// app.use('/users', require('./routes/users'));
+// app.use('/users', require('./routes/comments'));
+// app.use('/users', require('./routes/products'));
+
+
 app.listen(port, () => {
   console.log('app is listening on:', port)
 })
