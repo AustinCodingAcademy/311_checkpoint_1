@@ -1,26 +1,26 @@
-# Checkpoint 1
+<!-- # Checkpoint 1
 
 ## Setup
 
 Initialize and run the app: `npm install` && `npm start`.
 
-## Overview
+## Overview -->
 
-We are going to create a CRUD app using our knowledge of _routes_ and _controllers_. We will not be incorporating static files in this assignment. The basic Express functionality has been written for us but we will need to create any additional files/folders. Follow the instructions below to begin.
+<!-- We are going to create a CRUD app using our knowledge of _routes_ and _controllers_. We will not be incorporating static files in this assignment. The basic Express functionality has been written for us but we will need to create any additional files/folders. Follow the instructions below to begin. -->
 
 ## Instructions
 
-#### 1. Index
+<!-- #### 1. Index
 
-* In the `index.js` file, import and use the `bodyParser` in order to ensure that the body from our POST requests is appropriately cast to JSON.
+* In the `index.js` file, import and use the `bodyParser` in order to ensure that the body from our POST requests is appropriately cast to JSON. -->
 
-#### 2. Routes
+<!-- #### 2. Routes
 
-We will create five routes. The data for these routes is provided in the `data` folder. It is up to you to make use of this data correctly. For the POST route you may import and use the `sampleUser` file instead of creating a user manually.
+We will create five routes. The data for these routes is provided in the `data` folder. It is up to you to make use of this data correctly. For the POST route you may import and use the `sampleUser` file instead of creating a user manually. -->
 
-* Create a `routes` folder to hold our routes. Underneath make a file called `users.js` to represent the users router
+<!-- * Create a `routes` folder to hold our routes. Underneath make a file called `users.js` to represent the users router -->
 
-* Create the following routes inside `users.js`
+<!-- * Create the following routes inside `users.js`
 
 * GET /users
   * Return all users
@@ -37,33 +37,33 @@ We will create five routes. The data for these routes is provided in the `data` 
 * DELETE /users/:id
   * Delete one user by its id
 
-_You may chose to alter these routes so they appear as ('/', '/:id') in your users file and then prefix them all with '/users' when we import them into index.. but you are not required to do so_
-
+_You may chose to alter these routes so they appear as ('/', '/:id') in your users file and then prefix them all with '/users' when we import them into index.. but you are not required to do so_ -->
+<!-- 
 #### 3. Controllers
 
-* Create a `controllers` folder to hold our routes. Underneath make a file called `users.js` to represent the users controller
-
-We will create five controller functions. These will correspond to the routes above. ALL LOGIC for retrieving or updating the "data" should be done here. After that is complete we will import these controller functions into the routes. The end result of your routes should look like this: `router.get('/users', usersController.listUsers)`. Create the following controller functions:
-
+* Create a `controllers` folder to hold our routes. Underneath make a file called `users.js` to represent the users controller -->
+<!-- 
+We will create five controller functions. These will correspond to the routes above. ALL LOGIC for retrieving or updating the "data" should be done here. After that is complete we will import these controller functions into the routes. The end result of your routes should look like this: `router.get('/users', usersController.listUsers)`. Create the following controller functions: -->
+<!-- 
 * listUsers
   * Should retrieve the entire array from _data/index_
 
 * showUser
-  * Should retrieve just the user that matches the passed-in id
+  * Should retrieve just the user that matches the passed-in id -->
 
-* createUser
-  * Should add a user to the array
+<!-- * createUser
+  * Should add a user to the array -->
 
-* updateUser
-  * Should update one user in the array based on its id
+<!-- * updateUser
+  * Should update one user in the array based on its id -->
 
-* deleteUser
-  * Should delete one user from the array based on its id
+<!-- * deleteUser
+  * Should delete one user from the array based on its id -->
 
 
-#### 4. Error handling
+<!-- #### 4. Error handling
 
-Make sure that you are handling common use cases. For example, if we try to find a user by its _id_ and no id exists, we should return a 404 status code and no data. Likewise for the PUT and DELETEs, if a user doesn't exist return a 400 (bad request) status code.
+Make sure that you are handling common use cases. For example, if we try to find a user by its _id_ and no id exists, we should return a 404 status code and no data. Likewise for the PUT and DELETEs, if a user doesn't exist return a 400 (bad request) status code. -->
 
 
 ## POINTS
